@@ -8,27 +8,28 @@ export default {
       lg: "1280px",
       xl: "1600px",
     },
-    colors: {
-      text: "#090606",
-      background: "#FBF9F9",
-      primary: "#0B3B51",
-      secondary: "#E82128",
-      accent: "#76B7D6",
+    extend: {
+      colors: {
+        text: "#090606",
+        background: "#FBF9F9",
+        primary: "#0B3B51",
+        secondary: "#E82128",
+        accent: "#76B7D6",
+      },
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
+        titilum: ["Titillium Web", "sans-serif"],
+      },
+      fontSize: {
+        small: "0.8rem",
+        base: "1rem",
+        medium: "1.25rem",
+        h3: "1.5rem",
+        h2: "2.5rem",
+        h1: "3.75rem",
+        banner: "3rem",
+      }
     },
-    fontFamily: {
-      inter: ["Inter", "sans-serif"],
-      titilum: ["Titillium Web", "sans-serif"],
-    },
-    fontSize: {
-      small: "0.8rem",
-      base: "1rem",
-      medium: "1.25rem",
-      h3: "1.5rem",
-      h2: "2.5rem",
-      h1: "3.75rem",
-      banner: "3rem",
-    },
-    extend: {},
   },
   plugins: [],
 };
