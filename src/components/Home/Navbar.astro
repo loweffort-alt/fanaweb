@@ -1,5 +1,13 @@
-<nav class="flex justify-between">
-  <div>Logo</div>
+---
+import Logo from "../Logo.astro";
+---
+
+<nav class="flex items-center justify-between h-16 p-2 border">
+  <img src="Logo.svg" alt="logo" class="h-8 max-w-none" />
   <div>Menu</div>
-  <div>Button</div>
+  <div
+    class="rounded-xl bg-secondary py-4 px-8 font-bold text-white flex justify-center items-center"
+  >
+    Agenda tu cita
+  </div>
 </nav>
