@@ -2,12 +2,36 @@
 import Logo from "../Logo.astro";
 ---
 
-<nav class="flex items-center justify-between h-16 p-2 border">
-  <img src="Logo.svg" alt="logo" class="h-8 max-w-none" />
-  <div>Menu</div>
+<nav class="flex items-center justify-between h-16 py-2 relative">
+  <div class="nav_bg bg-background"></div>
+  <img src="Logo.svg" alt="logo" class="h-8 max-w-none cursor-pointer" />
+  <ul class="flex justify-center gap-8 items-center">
+    <li>Inicio</li>
+    <li>Servicios</li>
+    <li>Software</li>
+    <li>Blog</li>
+    <li>Nosotros</li>
+  </ul>
   <div
-    class="rounded-xl bg-secondary py-4 px-8 font-bold text-white flex justify-center items-center"
+    class="rounded-xl bg-secondary py-3 px-6 font-bold text-white flex justify-center items-center cursor-pointer"
   >
     Agenda tu cita
   </div>
 </nav>
+
+<style>
+  .nav_bg {
+    position: absolute;
+    height: 4rem;
+    width: calc(100% + 240px);
+    bottom: 0;
+    right: -120px;
+    z-index: -100;
+    filter: drop-shadow(0 0 0.3rem rgb(0, 0, 0, 0.1));
+  }
+
+  li:hover {
+    cursor: pointer;
+    border-bottom: 1px solid black;
+  }
+</style>
