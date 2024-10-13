@@ -15,18 +15,15 @@ import Engine from "./Icons/Engine.astro";
     {icon === "Idea" && <Idea />}
     {icon === "Engine" && <Engine />}
   </div>
-  <p class="small_text text-center">{description}</p>
+  <p class="small_text text-center text-primary">{description}</p>
 </li>
 
 <style>
   .small_text {
-    font-size: 0.875rem;
-    /* 14px */
-    font-weight: 300;
+    font-size: 0.75rem;
+    font-weight: 400;
     font-family: "Inter", sans-serif;
-    line-height: 1;
-    /* 100% */
+    line-height: 1.25;
     letter-spacing: 0.031rem;
-    /* Equivalente a 0.5px */
   }
 </style>
