@@ -2,17 +2,17 @@
   class="fixed h-screen -z-20 grid grid-cols-2 w-2/5 left-1/2 -translate-x-1/2"
 >
   <div class="h-screen absolute w-1 bg-gray-200">
-    <div class="moving-up bg-red-500" id="div1"></div>
-    <div class="moving-up bg-red-950" id="div2"></div>
-    <div class="moving-up bg-red-500" id="div3"></div>
-    <div class="moving-up bg-red-950" id="div4"></div>
+    <div class="moving-down bg-red-500" id="div1"></div>
+    <div class="moving-down bg-red-950" id="div2"></div>
+    <div class="moving-down bg-red-500" id="div3"></div>
+    <div class="moving-down bg-red-950" id="div4"></div>
   </div>
 
   <div class="h-screen absolute w-1 bg-gray-200 justify-self-end">
-    <div class="moving-down bg-red-500" id="div5"></div>
-    <div class="moving-down bg-red-950" id="div6"></div>
-    <div class="moving-down bg-red-500" id="div7"></div>
-    <div class="moving-down bg-red-950" id="div8"></div>
+    <div class="moving-up bg-red-500" id="div5"></div>
+    <div class="moving-up bg-red-950" id="div6"></div>
+    <div class="moving-up bg-red-500" id="div7"></div>
+    <div class="moving-up bg-red-950" id="div8"></div>
   </div>
 </section>
 
@@ -23,7 +23,7 @@
     position: absolute;
     left: 0;
     top: -3.75rem;
-    animation: moveDown 12s linear infinite;
+    animation: moveDown 6s linear infinite forwards;
   }
 
   #div1 {
@@ -40,6 +40,20 @@
 
   #div4 {
     animation-delay: 0s; /* Retraso para que siga al div2 */
+  }
+
+  /* Animación */
+  @keyframes moveDown {
+    0% {
+      transform: translateY(
+        -3.75rem
+      ); /* Empieza justo fuera y encima de la pantalla */
+    }
+    100% {
+      transform: translateY(
+        calc(100vh + 3.75rem) /* calc(100vh + 3.75rem) */
+      ); /* Se mueve a la parte superior */
+    }
   }
 
   .moving-up {
@@ -65,20 +79,6 @@
 
   #div8 {
     animation-delay: 0s; /* Retraso para que siga al div7 */
-  }
-
-  /* Animación */
-  @keyframes moveDown {
-    0% {
-      transform: translateY(
-        -3.5rem
-      ); /* Empieza justo fuera y encima de la pantalla */
-    }
-    100% {
-      transform: translateY(
-        calc(100vh + 3.75rem)
-      ); /* Se mueve a la parte superior */
-    }
   }
 
   @keyframes moveUp {
