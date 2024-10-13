@@ -8,12 +8,25 @@ import Engine from "./Icons/Engine.astro";
 
 <li>
   <div
-    class="w-16 h-16 flex justify-center items-center rounded-full bg-primary text-white drop-shadow"
+    class="w-16 h-16 flex justify-center items-center rounded-full bg-primary drop-shadow"
   >
     {icon === "Wrench" && <Wrench />}
     {icon === "Painting" && <Painting />}
     {icon === "Idea" && <Idea />}
     {icon === "Engine" && <Engine />}
   </div>
-  <p class="small_text">{description}</p>
+  <p class="small_text text-center">{description}</p>
 </li>
+
+<style>
+  .small_text {
+    font-size: 0.875rem;
+    /* 14px */
+    font-weight: 300;
+    font-family: "Inter", sans-serif;
+    line-height: 1;
+    /* 100% */
+    letter-spacing: 0.031rem;
+    /* Equivalente a 0.5px */
+  }
+</style>

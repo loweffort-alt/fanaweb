@@ -22,10 +22,6 @@ html {
 }
 
 @media (max-width: 744px) and (min-width: 426px) {
-  html {
-    font-size: 14px;
-  }
-
   .margin-container {
     margin-left: 2rem
       /* 16px */
@@ -48,10 +44,6 @@ html {
 }
 
 @media (min-width: 1281px) {
-  html {
-    font-size: 18px;
-  }
-
   .margin-container {
     margin-left: 8rem
       /* 16px */
@@ -67,7 +59,7 @@ h1 {
   /* 60px */
   font-weight: bold;
   font-family: "Titillium Web", sans-serif;
-  line-height: 1.2;
+  line-height: 1;
   /* Mejor que usar píxeles */
   letter-spacing: -0.015rem;
   /* Equivalente a -0.25px */
@@ -125,17 +117,6 @@ p {
   line-height: 2;
   /* Mantengo 200% */
   letter-spacing: normal;
-}
-
-.small_text {
-  font-size: 0.875rem;
-  /* 14px */
-  font-weight: 300;
-  font-family: "Inter", sans-serif;
-  line-height: 1;
-  /* 100% */
-  letter-spacing: 0.031rem;
-  /* Equivalente a 0.5px */
 }
 
 .motto_text {
