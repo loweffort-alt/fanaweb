@@ -2,8 +2,8 @@
 import IconContainer from "../Utils/IconContainer.astro";
 ---
 
-<section class="w-full max-h-[744px] py-8 grid grid-cols-2">
-  <div class="flex flex-col justify-center">
+<section class="w-full py-8 grid grid-cols-1 items-center md:grid-cols-2">
+  <div class="flex flex-col justify-between bg-red-200">
     <h4 class="text-secondary mb-2">/TODO TIPO DE MARCAS Y MODELOS</h4>
     <h1 class="text-primary mb-10">
       Servicio de <span class="text-secondary">Mantenimiento</span> y <span
@@ -24,11 +24,7 @@ import IconContainer from "../Utils/IconContainer.astro";
       <IconContainer description="Reparación de Motor" icon="Engine" />
     </ul>
   </div>
-  <div class="h-full w-[1000px] relative overflow-visible">
-    <img
-      src="hero-optimized.webp"
-      alt="hero-image"
-      class="h-full -translate-x-5"
-    />
+  <div class="w-[1000px] relative max-md:hidden">
+    <img src="hero-optimized.webp" alt="hero-image" class="-translate-x-5" />
   </div>
 </section>
