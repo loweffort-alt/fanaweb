@@ -56,14 +56,11 @@ html {
 }
 
 h1 {
-  font-size: 3.75rem;
-  /* 60px */
+  font-size: 3.5rem;
   font-weight: bold;
   font-family: "Titillium Web", sans-serif;
   line-height: 1;
-  /* Mejor que usar píxeles */
   letter-spacing: -0.015rem;
-  /* Equivalente a -0.25px */
 }
 
 @media (max-width: 425px) {
@@ -110,7 +107,7 @@ h4 {
   letter-spacing: normal;
 }
 
-p {
+main {
   font-size: 1rem;
   /* 16px */
   font-weight: 400;
