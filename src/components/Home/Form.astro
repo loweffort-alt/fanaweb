@@ -20,7 +20,28 @@ import ArrowDown from "../Utils/Icons/ArrowDown.astro";
         <li>Monitoreo de trabajos en <span>Tiempo Real</span></li>
       </ul>
     </div>
-    <div class="bg-blue-200">Formulario</div>
+    <div class="flex flex-col gap-8">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 *:w-full *:rounded-md"
+      >
+        <div class="px-4 py-2 bg-white">Nombre Completo</div>
+        <div class="px-4 py-2 bg-white">Celular</div>
+        <div class="px-4 py-2 bg-white">Empresa</div>
+        <div class="px-4 py-2 bg-white">Correo Empresarial</div>
+      </div>
+      <div>
+        <div class="flex gap-4 items-center mb-4">
+          <div class="min-w-4 min-h-4 bg-background rounded-sm"></div>
+          <p class="text-small leading-none text-background">
+            Al hacer click en enviar, aceptas las Políticas de Datos Personales
+            y las Políticas de Servicios en Fana.
+          </p>
+        </div>
+        <button class="w-full py-2 bg-secondary rounded-md text-background"
+          >Enviar</button
+        >
+      </div>
+    </div>
   </div>
 </section>
 
