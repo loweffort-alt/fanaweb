@@ -1,9 +1,11 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
+import formDebug from "@astro-utils/forms/dist/integration.js"
 import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind()]
+  output: "server",
+  integrations: [formDebug, tailwind()]
 });
