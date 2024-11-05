@@ -9,5 +9,5 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   output: "server",
-  integrations: [formDebug, tailwind(), react()]
+  integrations: [formDebug, tailwind(), react({ experimentalReactChildren: true })]
 });
