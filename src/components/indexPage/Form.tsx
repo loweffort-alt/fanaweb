@@ -9,14 +9,16 @@ interface FormData {
   checkbox: boolean;
 }
 
+const initialValue = {
+  username: '',
+  phone: '',
+  email: '',
+  carplate: '',
+  checkbox: false,
+}
+
 const Form: React.FC = () => {
-  const [inputValue, setInputvalue] = useState<FormData>({
-    username: '',
-    phone: '',
-    email: '',
-    carplate: '',
-    checkbox: true,
-  })
+  const [inputValue, setInputvalue] = useState<FormData>(initialValue)
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>): void {
     const { name, value, type, checked } = e.target;
@@ -27,10 +29,28 @@ const Form: React.FC = () => {
     }))
   }
 
-  function submitForm(e: any) {
+  async function submitForm(e: any) {
     e.preventDefault()
+    try {
+      const response = await fetch("/actions/send-email", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(inputValue)
+      })
 
-    console.log(inputValue)
+      if (!response.ok) {
+        throw new Error('Newtwork response was not ok')
+      }
+
+      const data = await response.json()
+      console.log('Success:', data)
+    } catch (error) {
+      console.log("Error:", error)
+    }
+
+    console.log(typeof inputValue)
   }
 
   return (
