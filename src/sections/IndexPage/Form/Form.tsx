@@ -1,5 +1,5 @@
 import { useState } from "react"
-import ArrowDownTS from "../Icons/Icons/ArrowDownTS"
+import ArrowDownTS from "@/icons/Extra/ArrowDownTS"
 
 interface FormData {
   username: string;
