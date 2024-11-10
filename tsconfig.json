@@ -12,6 +12,9 @@
       "@/icons/*": [
         "src/icons/*"
       ],
+      "@/utils/*": [
+        "src/utils/*"
+      ],
       "@/sections/*": [
         "src/sections/*"
       ],

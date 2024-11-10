@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
-import { sendEmail } from "../../utils/email";
+import { templateHTML } from "@/utils/emailTemplate";
+import { sendEmail } from "@/utils/email";
 
 export const prerender = false;
 
@@ -16,7 +17,7 @@ export const POST: APIRoute = async ({ request }) => {
       throw new Error("Missing required fields");
     }
 
-    const html = `<div>${email} ${phone} is the owner of ${carplate} and is the agreement is ${checkbox}</div>`;
+    const html = templateHTML()
     await sendEmail({ to: email, subject: username, html });
 
     // Redirect the user to a success page after the email is sent.
@@ -28,5 +29,4 @@ export const POST: APIRoute = async ({ request }) => {
   } catch (error) {
     throw new Error("Failed to send email");
   }
-
 };
