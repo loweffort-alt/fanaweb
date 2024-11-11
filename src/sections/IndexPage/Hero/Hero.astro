@@ -38,7 +38,7 @@ const serviceList: Service[] = [
 ---
 
 <section
-  class="w-full max-h-[750px] min-h-[660px] py-8 grid grid-cols-1 items-center max-md:text-center md:grid-cols-2"
+  class="w-full wea py-8 grid grid-cols-1 items-center max-md:text-center md:grid-cols-2"
 >
   <main class="flex flex-col justify-evenly max-h-[744px] gap-y-5">
     <HeroHeader subtitle={subtitle} />
@@ -53,3 +53,9 @@ const serviceList: Service[] = [
   </main>
   <HeroImage />
 </section>
+
+<style>
+  .wea {
+    height: calc(100vh - 8rem);
+  }
+</style>

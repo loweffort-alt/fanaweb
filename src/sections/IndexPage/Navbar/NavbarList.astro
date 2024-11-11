@@ -14,5 +14,11 @@ const { list } = Astro.props;
 <ul
   class="w-1/3 flex justify-between font-semibold text-text *:transition-all *:cursor-pointer max-lap:hidden"
 >
-  {list.map((menu) => <li class="hover:text-secondary">{menu.option}</li>)}
+  {
+    list.map((menu) => (
+      <li class="hover:text-secondary font-titilum font-normal">
+        {menu.option}
+      </li>
+    ))
+  }
 </ul>
