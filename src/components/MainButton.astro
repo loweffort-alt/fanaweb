@@ -1,0 +1,11 @@
+---
+const { scale } = Astro.props;
+
+const grow = scale ? "hover:scale-105 max-md:scale-90" : null;
+---
+
+<button
+  class=`py-3 px-6 rounded-lg bg-secondary font-semibold text-white hover:bg-red-600 transition ${grow} max-sm:text-sm`
+>
+  <slot />
+</button>

@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "@/IndexPage/Hero/Hero.astro";
 import Navbar from "@/IndexPage/Navbar/Navbar.astro";
-import Form from "@/IndexPage/Form/Form.tsx";
+import Form from "@/IndexPage/Form/Form.astro";
 import Advantages from "@/IndexPage/Advantages/Advantages.astro";
 import Banner from "@/IndexPage/Banner/Banner.astro";
 import Services from "@/IndexPage/Services/Services.astro";
@@ -21,7 +21,7 @@ import BackLines from "../components/BackLines.astro";
   </div>
   <main class="margin-container transition-all">
     <Hero />
-    <Form client:only="react" />
+    <Form />
     <Advantages />
     <Banner />
     <Services />

@@ -1,0 +1,39 @@
+---
+import IconContainer from "@/components/IconContainer.astro";
+
+type Service = {
+  icon: React.ComponentType;
+  description: string;
+};
+
+interface Props {
+  list: Service[];
+}
+
+const { list } = Astro.props;
+---
+
+{
+  list.map((service) => {
+    const SelectedIcon = service.icon;
+    return (
+      <li>
+        <IconContainer background="bg-primary" rounded="rounded-full">
+          {SelectedIcon ? <SelectedIcon /> : "Agregar ícono"}
+        </IconContainer>
+        <p class="small_text text-primary">{service.description}</p>
+      </li>
+    );
+  })
+}
+
+<style>
+  .small_text {
+    font-size: 0.75rem;
+    font-weight: 500;
+    font-family: "Inter", sans-serif;
+    line-height: 1.25;
+    letter-spacing: 0.031rem;
+    text-align: center;
+  }
+</style>

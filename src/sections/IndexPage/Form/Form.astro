@@ -1,0 +1,23 @@
+---
+import ArrowDown from "@/icons/Extra/ArrowDown.astro";
+import FormHeader from "./FormHeader.astro";
+import { FormInput } from "./FormInput";
+
+const title = "Nuestros expertos se comunicarán contigo.";
+const subtitle = "Ingresa tus datos";
+const description = [
+  ["Estandarización de", "Precios"],
+  ["Experiencia asegurada en", "Multimarcas"],
+  ["Monitoreo de trabajos en", "Tiempo Real"],
+];
+---
+
+<section class="my-8 bg-red-200">
+  <ArrowDown />
+  <div
+    class="h-full py-8 px-4 gap-8 md:px-8 bg-primary grid items-center lap:grid-cols-2 rounded-2xl"
+  >
+    <FormHeader title={title} subtitle={subtitle} description={description} />
+    <FormInput client:only="react" />
+  </div>
+</section>

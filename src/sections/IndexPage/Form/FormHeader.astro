@@ -1,0 +1,41 @@
+---
+const { title, subtitle, description } = Astro.props;
+---
+
+<div class="flex gap-8 flex-col text-background">
+  <div>
+    <h4>{subtitle}</h4>
+    <h2 class="max-md:text-center mt-2">
+      {title}
+    </h2>
+  </div>
+  <div class="flex flex-wrap gap-x-8 gap-y-4 text-sm font-light">
+    {
+      description.map((e: any) => (
+        <p>
+          {e[0]}
+          <span>{e[1]}</span>
+        </p>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    font-family: "Titillium Web", sans-serif;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  span {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: "Titillium Web", sans-serif;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+</style>
