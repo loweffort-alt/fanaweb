@@ -17,7 +17,7 @@ export const POST: APIRoute = async ({ request }) => {
       throw new Error("Missing required fields");
     }
 
-    const html = templateHTML()
+    const html = templateHTML(checkbox, email, phone)
     await sendEmail({ to: email, subject: username, html });
 
     // Redirect the user to a success page after the email is sent.

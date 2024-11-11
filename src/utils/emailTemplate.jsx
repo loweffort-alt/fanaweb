@@ -1,9 +1,9 @@
-export const templateHTML = (to = "Alex") => {
+export const templateHTML = (to = "Alex", email, phone) => {
   return `
     <div style="max-width: 600px; border: 1px solid #efefef; padding: 16px">
       <div style="margin-bottom: 32px; color: #222">
         <p style="margin-bottom: 16px">Hi, ${to},</p>
-        <p style="margin-bottom: 16px">Welcome to my application!</p>
+        <p style="margin-bottom: 16px">Welcome to my ${email}!</p>
         <p>
           Proident ullamco cillum eu magna dolor Lorem sit elit ad dolore eiusmod aliquip dolor enim. Cupidatat labore velit
           aliquip ullamco aute esse cupidatat nisi quis ullamco. Pariatur aute do quis ex exercitation ullamco enim tempor.
@@ -11,7 +11,7 @@ export const templateHTML = (to = "Alex") => {
         </p>
       </div>
       <div style="color: #5f5f5f">
-        <p>Footer content goes here ...</p>
+        <p>Footer content goes ${phone} ...</p>
       </div>
     </div>
   `
