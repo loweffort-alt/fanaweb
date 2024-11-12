@@ -98,8 +98,7 @@ export const FormInput = () => {
       </div>
       <button className="w-full h-12 py-2 bg-secondary rounded-md text-background relative"
       >
-        {loader && <SpinnerIcon />}
-        {!loader && "Enviar"}
+        {loader ? <SpinnerIcon /> : "Enviar"}
       </button>
     </form>
   )

@@ -1,0 +1,55 @@
+---
+interface Wea {
+  colorIcon: string;
+}
+
+type Service = {
+  icon: React.ComponentType<Wea>;
+  description: string;
+};
+
+interface Props {
+  options: Service[];
+}
+
+const { options } = Astro.props;
+---
+
+<div class="m-auto">
+  <menu
+    class="relative flex gap-4 *:flex *:items-center *:gap-2 *:px-2 *:py-3 *:mb-4"
+  >
+    {
+      options.map((service) => {
+        const SelectedIcon = service.icon;
+        return (
+          <li>
+            {SelectedIcon ? (
+              <SelectedIcon colorIcon="black" />
+            ) : (
+              "Agregar ícono"
+            )}
+            <p class="small_text text-primary">{service.description}</p>
+          </li>
+        );
+      })
+    }
+  </menu>
+</div>
+
+<style>
+  .small_text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: "Inter", sans-serif;
+  }
+
+  menu::after {
+    content: "";
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    background: #cbd5e1;
+    bottom: 0;
+  }
+</style>
