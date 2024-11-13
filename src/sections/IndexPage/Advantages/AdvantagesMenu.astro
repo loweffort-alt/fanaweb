@@ -1,6 +1,4 @@
 ---
-import OptionContent from "./OptionContent.astro";
-
 interface Wea {
   colorIcon: string;
 }
@@ -18,19 +16,21 @@ const { options } = Astro.props;
 
 const description =
   "En Fana sabemos que la experiencia construye confianza, es por eso que nuestro equipo técnico es liderado por Darío Reynaldo Farfán Chira, un campeón certificado de Toyota con más de 30 años de experiencia. Darío no solo supervisa, sino que también participa activamente en cada reparación y mantenimiento, garantizando una calidad técnica que rivaliza con los mejores concesionarios del país.";
+
+let colorIcon = "crimson";
 ---
 
 <div class="">
   <menu
-    class="relative max-w-fit mx-auto mb-10 flex gap-4 *:flex *:items-center *:gap-2 *:px-2 *:pt-3 *:pb-7"
+    class="relative max-w-fit mx-auto mb-10 flex gap-4 *:flex *:items-center *:gap-2 *:px-2 *:pt-3 *:pb-4"
   >
     {
       options.map((service) => {
         const SelectedIcon = service.icon;
         return (
-          <li class="bg-green-800 relative">
+          <li class="relative slider-tab">
             {SelectedIcon ? (
-              <SelectedIcon colorIcon="black" />
+              <SelectedIcon colorIcon={colorIcon} />
             ) : (
               "Agregar ícono"
             )}
@@ -40,10 +40,101 @@ const description =
       })
     }
   </menu>
-  <section>
-    <OptionContent description={description} />
-  </section>
+  <div class="swiper slider-container overflow-hidden">
+    <div class="slider-wrapper swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="container grid grid-cols-2 items-center gap-10">
+          <div>
+            <h3 class="pb-4">Confiando en la Experiencia</h3>
+            <article>{description}</article>
+          </div>
+          <img
+            src="/Photos/experience.webp"
+            alt="Campeon2004"
+            class="h-80 rounded-xl justify-self-center"
+          />
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="container grid grid-cols-2 items-center gap-10">
+          <div>
+            <h3 class="pb-4">Confiando en la Experiencia</h3>
+            <article>{description}</article>
+          </div>
+          <img
+            src="/Photos/2.png"
+            alt="Campeon2004"
+            class="h-80 rounded-xl justify-self-center"
+          />
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="container grid grid-cols-2 items-center gap-10">
+          <div>
+            <h3 class="pb-4">Confiando en la Experiencia</h3>
+            <article>{description}</article>
+          </div>
+          <img
+            src="/Photos/3.png"
+            alt="Campeon2004"
+            class="h-80 rounded-xl justify-self-center"
+          />
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="container grid grid-cols-2 items-center gap-10">
+          <div>
+            <h3 class="pb-4">Confiando en la Experiencia</h3>
+            <article>{description}</article>
+          </div>
+          <img
+            src="/Photos/4.png"
+            alt="Campeon2004"
+            class="h-80 rounded-xl justify-self-center"
+          />
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="container grid grid-cols-2 items-center gap-10">
+          <div>
+            <h3 class="pb-4">Confiando en la Experiencia</h3>
+            <article>{description}</article>
+          </div>
+          <img
+            src="/Photos/1.png"
+            alt="Campeon2004"
+            class="h-80 rounded-xl justify-self-center"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script>
+  import Swiper from "swiper";
+  import "swiper/css";
+  const sliderTabs = document.querySelectorAll(".slider-tab");
+
+  const swiper = new Swiper(".slider-container", {
+    spaceBetween: 30,
+    effect: "fade",
+    fadeEffect: {
+      crossFade: true,
+    },
+    speed: 300,
+  });
+
+  sliderTabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => {
+      swiper.slideTo(index);
+
+      console.dir(tab);
+      tab.setAttribute("colorIcon", "red");
+      tab.classList.add("text-red-700");
+    });
+  });
+</script>
 
 <style>
   .small_text {
@@ -57,12 +148,12 @@ const description =
     width: 100%;
     height: 4px;
     position: absolute;
-    background: #cbd5e1;
+    background: #4b707f;
     bottom: 0;
     z-index: 5;
   }
 
-  li::after {
+  .li::after {
     content: "";
     width: 100%;
     height: 4px;
