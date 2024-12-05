@@ -1,50 +1,13 @@
 ---
 import AdvantagesHeader from "./AdvantagesHeader.astro";
 import AdvantagesMenu from "./AdvantagesMenu.astro";
-import Quality from "@/icons/Advantages/Quality.astro";
-import Car from "@/icons/Advantages/Car.astro";
-import Idea from "@/icons/Advantages/Idea.astro";
-import Delivery from "@/icons/Advantages/Delivery.astro";
-import Speedometer from "@/icons/Advantages/Speedometer.astro";
-
-const title = "El Taller Automotriz Más Confiable";
-const description =
-  "Descubre cómo en Fana combinamos experiencia y tecnología para ofrecerte un servicio automotriz excepcional. Disfruta de atención personalizada, supervisión experta, y conveniencia con nuestros servicios a domicilio y plataforma tecnológica.";
-
-interface Props {
-  colorIcon: string;
-}
-
-type Options = {
-  icon: React.ComponentType<Props>;
-  description: string;
-};
-
-const menuOptions: Options[] = [
-  {
-    icon: Quality,
-    description: "Experiencia",
-  },
-  {
-    icon: Car,
-    description: "Especializado",
-  },
-  {
-    icon: Idea,
-    description: "Personalizado",
-  },
-  {
-    icon: Delivery,
-    description: "Delivery",
-  },
-  {
-    icon: Speedometer,
-    description: "Innovador",
-  },
-];
+import { headerData, menuData } from "@/data.ts";
 ---
 
 <section class="px-8 py-16 flex flex-col gap-16">
-  <AdvantagesHeader title={title} description={description} />
-  <AdvantagesMenu options={menuOptions} />
+  <AdvantagesHeader
+    title={headerData.title}
+    description={headerData.description}
+  />
+  <AdvantagesMenu menuData={menuData} />
 </section>

@@ -1,15 +1,28 @@
 ---
-const { description } = Astro.props;
+const { title, description, image } = Astro.props;
 ---
 
-<div class="container grid grid-cols-2 items-center gap-10">
+<div class="grid md:grid-cols-2 items-center gap-10">
   <div>
-    <h3 class="pb-4">Confiando en la Experiencia</h3>
+    <h3 class="pb-4">{title}</h3>
     <article>{description}</article>
+    <ul class="list-disc px-5 flex flex-col gap-2 pt-2">
+      <li>
+        <span class="font-bold">Experiencia de Clase Mundial: </span>
+        Cada vehículo es supervisado directamente por Darío Farfán Chira, ex-campeón
+        de GrupoPana con más de 40 años de experiencia en el sector automotriz.
+      </li>
+      <li>
+        <span class="font-bold">Calidad Garantizada: </span>
+        La supervisión y participación activa de Darío asegura diagnósticos precisos
+        y soluciones efectivas, proporcionando una calidad técnica comparable a los
+        mejores concesionarios del país.
+      </li>
+    </ul>
   </div>
   <img
-    src="/Photos/experience.webp"
-    alt="Campeon2004"
+    src={image}
+    alt="Image Carousel"
     class="h-80 rounded-xl justify-self-center"
   />
 </div>

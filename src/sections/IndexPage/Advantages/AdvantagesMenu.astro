@@ -1,112 +1,62 @@
 ---
-interface Wea {
-  colorIcon: string;
-}
-
-type Service = {
-  icon: React.ComponentType<Wea>;
-  description: string;
-};
+import OptionContent from "./OptionContent.astro";
+import Quality from "@/icons/Advantages/Quality.astro";
+import Car from "@/icons/Advantages/Car.astro";
+import Idea from "@/icons/Advantages/Idea.astro";
+import Delivery from "@/icons/Advantages/Delivery.astro";
+import Speedometer from "@/icons/Advantages/Speedometer.astro";
 
 interface Props {
-  options: Service[];
+  menuData: {
+    icon: string;
+    option: string;
+    title: string;
+    description: string;
+    image: string;
+  }[];
 }
 
-const { options } = Astro.props;
+const { menuData } = Astro.props;
 
-const description =
-  "En Fana sabemos que la experiencia construye confianza, es por eso que nuestro equipo técnico es liderado por Darío Reynaldo Farfán Chira, un campeón certificado de Toyota con más de 30 años de experiencia. Darío no solo supervisa, sino que también participa activamente en cada reparación y mantenimiento, garantizando una calidad técnica que rivaliza con los mejores concesionarios del país.";
-
-let colorIcon = "crimson";
+const iconMap: Record<string, typeof Quality> = {
+  Quality,
+  Car,
+  Idea,
+  Delivery,
+  Speedometer,
+};
 ---
 
-<div class="">
+<div>
   <menu
     class="relative max-w-fit mx-auto mb-10 flex gap-4 *:flex *:items-center *:gap-2 *:px-2 *:pt-3 *:pb-4"
   >
-    {
-      options.map((service) => {
-        const SelectedIcon = service.icon;
-        return (
-          <li class="relative slider-tab">
-            {SelectedIcon ? (
-              <SelectedIcon colorIcon={colorIcon} />
-            ) : (
-              "Agregar ícono"
-            )}
-            <p class="small_text text-primary">{service.description}</p>
-          </li>
-        );
+    {menuData.map((header, index) => {
+      const Icon = iconMap[header.icon];
+      return (
+        <li class="relative text-primary cursor-pointer slider-tab transition-all" id=`${index}` data-is-clicked=false>
+          <div class="flex gap-2 rounded p-1 opacity-60">
+            {Icon && <Icon />}
+            <p class="small_text">{header.option}</p>
+          </div>
+        </li>
+      );
       })
     }
   </menu>
   <div class="swiper slider-container overflow-hidden">
     <div class="slider-wrapper swiper-wrapper">
+      {menuData.map((content, index) => {
+      return (
       <div class="swiper-slide">
-        <div class="container grid grid-cols-2 items-center gap-10">
-          <div>
-            <h3 class="pb-4">Confiando en la Experiencia</h3>
-            <article>{description}</article>
-          </div>
-          <img
-            src="/Photos/experience.webp"
-            alt="Campeon2004"
-            class="h-80 rounded-xl justify-self-center"
-          />
-        </div>
+        <OptionContent
+          title={content.title}
+          description={content.description}
+          image={content.image} 
+        />
       </div>
-      <div class="swiper-slide">
-        <div class="container grid grid-cols-2 items-center gap-10">
-          <div>
-            <h3 class="pb-4">Confiando en la Experiencia</h3>
-            <article>{description}</article>
-          </div>
-          <img
-            src="/Photos/2.png"
-            alt="Campeon2004"
-            class="h-80 rounded-xl justify-self-center"
-          />
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="container grid grid-cols-2 items-center gap-10">
-          <div>
-            <h3 class="pb-4">Confiando en la Experiencia</h3>
-            <article>{description}</article>
-          </div>
-          <img
-            src="/Photos/3.png"
-            alt="Campeon2004"
-            class="h-80 rounded-xl justify-self-center"
-          />
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="container grid grid-cols-2 items-center gap-10">
-          <div>
-            <h3 class="pb-4">Confiando en la Experiencia</h3>
-            <article>{description}</article>
-          </div>
-          <img
-            src="/Photos/4.png"
-            alt="Campeon2004"
-            class="h-80 rounded-xl justify-self-center"
-          />
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="container grid grid-cols-2 items-center gap-10">
-          <div>
-            <h3 class="pb-4">Confiando en la Experiencia</h3>
-            <article>{description}</article>
-          </div>
-          <img
-            src="/Photos/1.png"
-            alt="Campeon2004"
-            class="h-80 rounded-xl justify-self-center"
-          />
-        </div>
-      </div>
+      )
+      })}
     </div>
   </div>
 </div>
@@ -114,26 +64,36 @@ let colorIcon = "crimson";
 <script>
   import Swiper from "swiper";
   import "swiper/css";
-  const sliderTabs = document.querySelectorAll(".slider-tab");
+  const sliderTabs = document.querySelectorAll<HTMLElement>(".slider-tab");
 
   const swiper = new Swiper(".slider-container", {
     spaceBetween: 30,
     effect: "fade",
-    fadeEffect: {
-      crossFade: true,
-    },
     speed: 300,
   });
 
-  sliderTabs.forEach((tab, index) => {
+  const firstTab = sliderTabs[0];
+  firstTab.classList.add("isSelected");
+
+  sliderTabs.forEach((tab, index, arr) => {
     tab.addEventListener("click", () => {
       swiper.slideTo(index);
+      arr.forEach((tab) => {
+        tab.dataset.isClicked = "false";
+      });
+      console.dir(tab)
+      tab.dataset.isClicked = "true";
 
-      console.dir(tab);
-      tab.setAttribute("colorIcon", "red");
-      tab.classList.add("text-red-700");
+      arr.forEach((tab) => {
+        if (tab.dataset.isClicked === "true") {
+          tab.classList.add("isSelected");
+        } else {
+          tab.classList.remove("isSelected");
+        }
+      })
     });
   });
+
 </script>
 
 <style>
@@ -153,14 +113,21 @@ let colorIcon = "crimson";
     z-index: 5;
   }
 
-  .li::after {
+  .isSelected::after {
     content: "";
     width: 100%;
     height: 4px;
     position: absolute;
-    background: crimson;
+    background: #E82128;
     bottom: 0;
     left: 0;
     z-index: 6;
+  }
+
+  .isSelected {
+    div {
+      background-color: #fee2e2;
+      opacity: 1;
+    }
   }
 </style>
