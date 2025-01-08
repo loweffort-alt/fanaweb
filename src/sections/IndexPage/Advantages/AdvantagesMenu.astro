@@ -11,7 +11,13 @@ interface Props {
     icon: string;
     option: string;
     title: string;
-    description: string;
+    description: {
+      content?: string;
+      pointOne?: string;
+      pointOneDescription?: string;
+      pointTwo?: string;
+      pointTwoDescription: string
+    };
     image: string;
   }[];
 }
@@ -29,15 +35,15 @@ const iconMap: Record<string, typeof Quality> = {
 
 <div>
   <menu
-    class="relative max-w-fit mx-auto mb-10 flex gap-4 *:flex *:items-center *:gap-2 *:px-2 *:pt-3 *:pb-4"
+    class="relative md:max-w-fit mx-auto mb-10 justify-items-center gap-1 md:gap-4 *:pt-3 *:pb-4"
   >
     {menuData.map((header, index) => {
       const Icon = iconMap[header.icon];
       return (
-        <li class="relative text-primary cursor-pointer slider-tab transition-all" id=`${index}` data-is-clicked=false>
-          <div class="flex gap-2 rounded p-1 opacity-60">
-            {Icon && <Icon />}
-            <p class="small_text">{header.option}</p>
+        <li class="relative text-primary cursor-pointer slider-tab transition-all w-full flex justify-center" id=`${index}` data-is-clicked=false>
+          <div class="w-full flex justify-center md:gap-2 rounded p-1 opacity-60">
+            {Icon && <Icon />} 
+            <p class="max-md:hidden small_text">{header.option}</p>
           </div>
         </li>
       );
@@ -101,6 +107,11 @@ const iconMap: Record<string, typeof Quality> = {
     font-size: 0.9rem;
     font-weight: 500;
     font-family: "Inter", sans-serif;
+  }
+
+  menu {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
   }
 
   menu::after {

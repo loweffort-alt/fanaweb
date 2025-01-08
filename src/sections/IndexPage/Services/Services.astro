@@ -1,0 +1,27 @@
+---
+import Quality from "@/icons/Advantages/Quality.astro";
+import CardServices from "./CardServices.astro";
+import { ServicesData } from "@/data.ts";
+---
+
+<section class="px-2 md:px-8 my-16 flex flex-col gap-6 md:gap-16">
+  <div>
+    <p class="text-base md:text-medium text-center text-secondary">
+      Lo que ofrecemos
+    </p>
+    <h2 class="text-h3 md:text-h2 text-center">
+      Accede a Todos Nuestros Servicios Sin Salir de Casa
+    </h2>
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-3 md:grid-rows-2 gap-8 md:px-16">
+    {
+      ServicesData.map((service) => (
+        <CardServices
+          image={service.image}
+          title={service.title}
+          description={service.description}
+        />
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,27 @@
+---
+import Battery from "@/icons/Services/Battery.astro";
+import Oil from "@/icons/Services/Oil.astro";
+import Speedometer from "@/icons/Services/Speedometer.astro";
+import Paint from "@/icons/Services/Painting.astro";
+import Brake from "@/icons/Services/Brake.astro";
+import Transmission from "@/icons/Services/Transmission.astro";
+
+const { image, title, description } = Astro.props;
+---
+
+<div
+  class="bg-accent flex flex-col justify-center items-center text-center px-2 py-8 md:p-8 rounded-xl gap-4"
+>
+  <div class="aspect-square flex items-center">
+    {image === "Battery" && <Battery />}
+    {image === "Oil" && <Oil />}
+    {image === "Speedometer" && <Speedometer />}
+    {image === "Paint" && <Paint />}
+    {image === "Brake" && <Brake />}
+    {image === "Transmission" && <Transmission />}
+  </div>
+  <div>
+    <h3 class="text-primary text-small md:text-base">{title}</h3>
+    <p class="text-text max-md:hidden">{description}</p>
+  </div>
+</div>

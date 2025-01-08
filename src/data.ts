@@ -1,8 +1,16 @@
+import { debug } from "node_modules/astro/dist/core/logger/core";
+
 export type Options = {
   icon: string;
   option: string;
   title: string;
-  description: string;
+  description: {
+    content?: string;
+    pointOne?: string;
+    pointOneDescription?: string;
+    pointTwo?: string;
+    pointTwoDescription: string
+  };
   image: string;
 };
 
@@ -15,36 +23,99 @@ export const menuData: Options[] = [
   {
     icon: "Quality",
     option: "Experiencia",
-    title: "El Taller Automotriz Más Confiable",
-    description: "En Fana sabemos que la experiencia construye confianza, es por eso que nuestro equipo técnico es liderado por un campeón certificado de Toyota.",
+    title: "Experiencia de Clase Mundial",
+    description: {
+      content: "En Fana sabemos que la experiencia construye confianza, es por eso que nuestro equipo técnico es liderado por un campeón certificado de Toyota.",
+      pointOne: "Experiencia de Clase Mundial",
+      pointOneDescription: "Cada vehículo es supervisado directamente por Darío Farfán Chira, ex-campeón de GrupoPana con más de 40 años de experiencia en el sector automotriz.",
+      pointTwo: "Calidad Garantizada: ",
+      pointTwoDescription: "La supervisión y participación activa de Darío asegura diagnósticos precisos y soluciones efectivas, proporcionando una calidad técnica comparable a los mejores concesionarios del país."
+    },
     image: "/Photos/experience.webp",
   },
   {
     icon: "Car",
     option: "Especializado",
-    title: "Especialización en Autos y Camionetas: Servicios Premium y Conocimiento Detallado",
-    description: "En Fana, nos especializamos en la reparación y mantenimiento de autos y camionetas, ofreciendo un nivel de atención y conocimiento que asegura el mejor cuidado para tu vehículo. Nuestra especialización nos permite estar al tanto de las últimas tecnologías y técnicas específicas para estos vehículos, ofreciendo soluciones personalizadas y eficientes. Elegir Fana significa confiar en un taller que entiende las particularidades de tu auto o camioneta. Nuestro enfoque especializado nos permite identificar problemas rápidamente y aplicar las soluciones más adecuadas, ahorrándote tiempo y dinero mientras prolongamos la vida útil de tu vehículo.",
-    image: "/Photos/experience.webp",
+    title: "Especialización en Autos y Camionetas",
+    description: {
+      content: "En Fana nos especializamos en autos y camionetas, ofreciendo servicios premium con un conocimiento detallado para asegurar resultados de alta calidad.",
+      pointOne: "Atención Exclusiva",
+      pointOneDescription: "Nos enfocamos únicamente en autos y camionetas, lo que nos permite desarrollar soluciones específicas y eficientes para cada tipo de vehículo.",
+      pointTwo: "Repuestos de Alta Calidad",
+      pointTwoDescription: "Utilizamos piezas originales y de marcas reconocidas para garantizar el mejor rendimiento de tu vehículo."
+    },
+    image: "/Photos/specialized.png"
   },
   {
     icon: "Idea",
     option: "Personalizado",
-    title: "El Taller Automotriz Más Confiable",
-    description: "En Fana sabemos que la experiencia construye confianza, es por eso que nuestro equipo técnico es liderado por Darío Reynaldo Farfán Chira, un campeón certificado de Toyota con más de 30 años de experiencia. Darío no solo supervisa, sino que también participa activamente en cada reparación y mantenimiento, garantizando una calidad técnica que rivaliza con los mejores concesionarios del país.",
-    image: "/Photos/experience.webp",
+    title: "Servicios Personalizados",
+    description: {
+      content: "Entendemos que cada cliente es único, por eso adaptamos nuestros servicios a las necesidades específicas de tu vehículo, garantizando soluciones efectivas.",
+      pointOne: "Comodidad en Sala de Espera",
+      pointOneDescription: "Contamos con un salón de espera equipado con todo lo que necesitas para que tu experiencia sea cómoda y placentera mientras esperas.",
+      pointTwo: "Atención Programada",
+      pointTwoDescription: "Trabajamos únicamente con citas agendadas, asegurando que tu tiempo sea respetado y cada servicio sea realizado con total dedicación."
+    },
+    image: "/Photos/personalized.jpg"
   },
   {
     icon: "Delivery",
     option: "Delivery",
-    title: "El Taller Automotriz Más Confiable",
-    description: "En Fana sabemos que la experiencia construye confianza, es por eso que nuestro equipo técnico es liderado por Darío Reynaldo Farfán Chira, un campeón certificado de Toyota con más de 30 años de experiencia. Darío no solo supervisa, sino que también participa activamente en cada reparación y mantenimiento, garantizando una calidad técnica que rivaliza con los mejores concesionarios del país.",
-    image: "/Photos/experience.webp",
+    title: "Servicio de Recojo y Entrega",
+    description: {
+      content: "Ofrecemos la comodidad de recoger y entregar tu vehículo en tu domicilio, asegurando que disfrutes de un servicio técnico sin complicaciones.",
+      pointOne: "Ahorra Tiempo",
+      pointOneDescription: "Olvídate de trasladar tu vehículo, nosotros lo recogemos y lo entregamos una vez completado el servicio.",
+      pointTwo: "Cobertura Segura",
+      pointTwoDescription: "Garantizamos un transporte seguro para tu vehículo, desde tu hogar hasta el taller y viceversa."
+    },
+    image: "/Photos/delivery.png"
   },
   {
     icon: "Speedometer",
     option: "Innovador",
-    title: "El Taller Automotriz Más Confiable",
-    description: "En Fana sabemos que la experiencia construye confianza, es por eso que nuestro equipo técnico es liderado por Darío Reynaldo Farfán Chira, un campeón certificado de Toyota con más de 30 años de experiencia. Darío no solo supervisa, sino que también participa activamente en cada reparación y mantenimiento, garantizando una calidad técnica que rivaliza con los mejores concesionarios del país.",
-    image: "/Photos/experience.webp",
-  },
+    title: "Plataforma Tecnológica Innovadora",
+    description: {
+      content: "Con nuestra plataforma tecnológica, puedes monitorear el estado de tu vehículo en tiempo real, manteniéndote siempre informado del progreso de cada servicio.",
+      pointOne: "Seguimiento en Tiempo Real",
+      pointOneDescription: "Accede al estado de las reparaciones y mantenimientos desde cualquier lugar, directamente desde nuestra plataforma.",
+      pointTwo: "Transparencia Total",
+      pointTwoDescription: "Consulta el historial de servicios, costos y diagnósticos de tu vehículo de forma clara y detallada."
+    },
+    image: "/Photos/innovative.png"
+  }
 ];
+
+export const ServicesData = [
+  {
+    image: "Oil",
+    title: "Mantenimiento General",
+    description: "Realizamos un mantenimiento exhaustivo de todos los sistemas de tu auto, tendrás un historial con los cambios y observaciones del servicio",
+  },
+  {
+    image: "Transmission",
+    title: "Reparación de Motor",
+    description: "Somos especialistas en reparar y mantener todos los componentes del motor, asegurando un rendimiento óptimo y duradero",
+  },
+  {
+    image: "Battery",
+    title: "Sistema de arranque",
+    description: "¡No te quedes sin energía en un día importante! Nos encargamos de mantener tu alternador, arrancador y batería para evitar sorpresas",
+  },
+  {
+    image: "Speedometer",
+    title: "Diagnóstico Automotriz",
+    description: "No pierdas tiempo ni dinero con suposiciones, nosotros identificamos los problemas de tu vehículo con tecnología avanzada y precisión quirurgica",
+  },
+  {
+    image: "Paint",
+    title: "Planchado y Pintura",
+    description: "Restauramos y embellecemos tu auto con servicios de planchado y pintura de alta calidad dándole un acabado renovado y brillante",
+  },
+  {
+    image: "Brake",
+    title: "Frenos y Suspensión",
+    description: "No permitas que los baches de la carretera te incomoden, maneja cómodamente con una suspensión y frenos en excelente estado"
+  }
+]
