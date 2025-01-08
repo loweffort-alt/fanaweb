@@ -1,7 +1,83 @@
 ---
 import Menu from "@/icons/Extra/Menu.astro";
+import { X } from "lucide-react";
+
+interface MenuList {
+  option: string;
+  link: string;
+}
+
+const menuList: MenuList[] = [
+  {
+    option: "Inicio",
+    link: "#home",
+  },
+  {
+    option: "Servicios",
+    link: "#services",
+  },
+  {
+    option: "Ventajas",
+    link: "#advantages",
+  },
+  {
+    option: "Software",
+    link: "#tech",
+  },
+];
 ---
 
 <div class="visible lap:hidden justify-self-end">
-  <Menu />
+  <div id="open-menu">
+    <Menu />
+  </div>
+  <div
+    id="hiden-menu"
+    class="ocultar w-1/3 h-dvh bg-primary absolute top-0 right-0"
+  >
+    <ul
+      class="grid grid-rows-4 py-64 items-center justify-center h-full relative"
+    >
+      <div class="absolute top-5 right-2" id="close-menu">
+        <X size={32} color="white" />
+      </div>
+      {
+        menuList.map((menu) => (
+          <a href={menu.link} hidden-menu-option>
+            <li class="text-center hover:text-secondary text-background font-bold font-titilum text-h3">
+              {menu.option}
+            </li>
+          </a>
+        ))
+      }
+    </ul>
+  </div>
 </div>
+
+<style>
+  #hiden-menu {
+    transition: 0.5s ease;
+  }
+
+  .ocultar {
+    translate: 100%;
+  }
+</style>
+
+<script>
+  document.getElementById("open-menu")?.addEventListener("click", () => {
+    document.getElementById("hiden-menu")?.classList.remove("ocultar");
+  });
+
+  document.getElementById("close-menu")?.addEventListener("click", () => {
+    document.getElementById("hiden-menu")?.classList.add("ocultar");
+  });
+
+  document.querySelectorAll("[hidden-menu-option]").forEach((element) => {
+    element.addEventListener("click", () => {
+      setTimeout(() => {
+        document.getElementById("hiden-menu")?.classList.add("ocultar");
+      }, 500);
+    });
+  });
+</script>

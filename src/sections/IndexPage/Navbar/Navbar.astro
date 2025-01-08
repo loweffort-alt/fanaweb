@@ -11,30 +11,26 @@ interface MenuList {
 const menuList: MenuList[] = [
   {
     option: "Inicio",
-    link: "/",
+    link: "#home",
   },
   {
     option: "Servicios",
-    link: "/",
+    link: "#services",
+  },
+  {
+    option: "Ventajas",
+    link: "#advantages",
   },
   {
     option: "Software",
-    link: "/",
-  },
-  {
-    option: "Blog",
-    link: "/",
-  },
-  {
-    option: "Nosotros",
-    link: "/",
+    link: "#tech",
   },
 ];
 ---
 
 <div class="fixed top-0 w-full z-50">
   <nav
-    class="flex justify-between items-center h-16 py-2 relative bg-background drop-shadow-md lg:px-16 md:px-12 sm:px-8 max-sm:px-4"
+    class="flex justify-between items-center h-16 py-2 bg-background drop-shadow-md lg:px-16 md:px-12 sm:px-8 max-sm:px-4"
   >
     <img src="Logo.svg" alt="logo" class="h-8 cursor-pointer max-md:h-7" />
     <NavbarList list={menuList} />

@@ -17,7 +17,7 @@ const { list } = Astro.props;
   {
     list.map((menu) => (
       <li class="hover:text-secondary font-titilum font-normal">
-        {menu.option}
+        <a href={menu.link}>{menu.option}</a>
       </li>
     ))
   }
