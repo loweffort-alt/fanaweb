@@ -32,13 +32,15 @@ const menuList: MenuList[] = [
 ];
 ---
 
-<nav
-  class="flex justify-between items-center h-16 py-2 relative bg-background drop-shadow-md lg:px-16 md:px-12 sm:px-8 max-sm:px-4"
->
-  <img src="Logo.svg" alt="logo" class="h-8 cursor-pointer max-md:h-7" />
-  <NavbarList list={menuList} />
-  <div class="flex gap-8 items-center">
-    <MainButton scale={true}> Agenda tu cita </MainButton>
-    <NavbarHiddenMenu />
-  </div>
-</nav>
+<div class="fixed top-0 w-full z-50">
+  <nav
+    class="flex justify-between items-center h-16 py-2 relative bg-background drop-shadow-md lg:px-16 md:px-12 sm:px-8 max-sm:px-4"
+  >
+    <img src="Logo.svg" alt="logo" class="h-8 cursor-pointer max-md:h-7" />
+    <NavbarList list={menuList} />
+    <div class="flex gap-8 items-center">
+      <MainButton scale={true}> Agenda tu cita </MainButton>
+      <NavbarHiddenMenu />
+    </div>
+  </nav>
+</div>

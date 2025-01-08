@@ -15,20 +15,20 @@ import BackLines from "../components/BackLines.astro";
 <Layout title="Welcome to Astro.">
   <BackLines />
   <Navbar />
-  <div
-    class="w-10 h-10 max-sm:bg-red-300 max-md:bg-blue-300 max-lg:bg-green-300 lg:bg-yellow-300 fixed"
-  >
-  </div>
+  <!--<div-->
+  <!--  class="w-10 h-10 max-sm:bg-red-300 max-md:bg-blue-300 max-lg:bg-green-300 lg:bg-yellow-300 fixed"-->
+  <!-- > -->
+  <!--</div>-->
   <main class="margin-container transition-all">
     <Hero />
-    <Form />
-    <Advantages colorIcon="black" />
   </main>
   <Banner />
   <main class="margin-container">
+    <Advantages colorIcon="black" />
+    <CallToAction />
     <Services />
     <Tech />
-    <CallToAction />
+    <Form />
   </main>
   <Footer />
 </Layout>
