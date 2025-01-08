@@ -1,5 +1,3 @@
-import { debug } from "node_modules/astro/dist/core/logger/core";
-
 export type Options = {
   icon: string;
   option: string;
