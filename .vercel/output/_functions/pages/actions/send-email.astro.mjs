@@ -64,7 +64,6 @@ const POST = async ({ request }) => {
       headers: { "Content-Type": "application/json" }
     });
   } catch (error) {
-    console.error(error);
     throw new Error("Failed to send email");
   }
 };
