@@ -10,6 +10,7 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     // Get the form data submitted by the user on the home page
     const body = await request.json();
+    console.log(body)
     const { carplate, checkbox, email, phone, username } = body
 
     // Throw an error if we're missing any of the needed fields.

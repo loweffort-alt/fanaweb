@@ -1,18 +1,18 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-import formDebug from "@astro-utils/forms/dist/integration.js"
 import tailwind from '@astrojs/tailwind';
 import react from "@astrojs/react";
-import node from "@astrojs/node";
 
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
   output: "server",
-  integrations: [formDebug, tailwind({
+
+  integrations: [tailwind({
     applyBaseStyles: false,
   }), react({ experimentalReactChildren: true })],
-  adapter: vercel()
+
+  adapter: vercel(),
 });
