@@ -1,0 +1,44 @@
+---
+import { TechData } from "@/data.ts";
+import CheckCircleArrow from "@/icons/Extra/check-circle.astro";
+---
+
+<section class="px-2 md:px-8 my-16 flex flex-col gap-6 md:gap-16">
+  <div class="grid md:grid-cols-2 items-center gap-0">
+    <img
+      src="/techplatform.png"
+      alt="Image Carousel"
+      class="rounded-xl object-cover"
+    />
+    <div>
+      <h3 class="pb-4">Plataforma Tecnológica</h3>
+      <article>{TechData.description}</article>
+      <ul class="list-none px-2 md:px-5 flex flex-col gap-4 pt-3">
+        <li class="flex gap-2">
+          <div class="aspect-square">
+            <CheckCircleArrow />
+          </div>
+          {TechData.bulletOne}
+        </li>
+        <li class="flex gap-2">
+          <div class="aspect-square">
+            <CheckCircleArrow />
+          </div>
+          {TechData.bulletTwo}
+        </li>
+        <li class="flex gap-2">
+          <div class="aspect-square">
+            <CheckCircleArrow />
+          </div>
+          {TechData.bulletThree}
+        </li>
+        <li class="flex gap-2">
+          <div class="aspect-square">
+            <CheckCircleArrow />
+          </div>
+          {TechData.bulletFour}
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

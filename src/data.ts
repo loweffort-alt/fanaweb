@@ -119,3 +119,12 @@ export const ServicesData = [
     description: "No permitas que los baches de la carretera te incomoden, maneja cómodamente con una suspensión y frenos en excelente estado"
   }
 ]
+
+export const TechData = {
+  title: "Plataforma Tecnológica",
+  description: "Nuestra plataforma tecnológica permite monitorear, gestionar y reportar en tiempo real el estado de los trabajos en los vehículos de la flota.",
+  bulletOne: "Consulta en tiempo real el estado de tus unidades",
+  bulletTwo: "Conoce el estado y la evidencia fotográfica de tus servicios",
+  bulletThree: "Accede a un historial de citas con indicadores de tiempo y costos",
+  bulletFour: "Administra la facturación de tus servicios"
+}
