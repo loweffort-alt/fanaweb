@@ -11,7 +11,7 @@ interface MenuList {
 const menuList: MenuList[] = [
   {
     option: "Inicio",
-    link: "#home",
+    link: "/",
   },
   {
     option: "Servicios",
@@ -23,12 +23,12 @@ const menuList: MenuList[] = [
   },
   {
     option: "Software",
-    link: "#tech",
+    link: "/register-new-vehicle",
   },
 ];
 ---
 
-<div class="fixed top-0 w-full z-50">
+<div class="fixed top-0 md:static w-full z-50">
   <nav
     class="flex justify-between items-center h-16 py-2 bg-background drop-shadow-md lg:px-16 md:px-12 sm:px-8 max-sm:px-4"
   >
